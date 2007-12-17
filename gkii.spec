@@ -10,7 +10,6 @@ Url:		http://www.jwm-art.net/gkII/
 Source0:	http://www.jwm-art.net/gkII/%{oname}-src-%{version}.tar.bz2
 BuildRequires:	libgtk+2-devel
 BuildRequires:	libpng-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description 
 It features unlimited image size, anti-aliasing, Mandelbrot/Julia mangling, 
