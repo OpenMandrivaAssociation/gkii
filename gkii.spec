@@ -3,7 +3,7 @@
 Summary:	Mandelbrot and Julia set image generator
 Name:		gkii
 Version:	0.4.6
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Graphics
 Url:		http://www.jwm-art.net/gkII/
