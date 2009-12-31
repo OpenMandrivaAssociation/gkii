@@ -2,12 +2,13 @@
 
 Summary:	Mandelbrot and Julia set image generator
 Name:		gkii
-Version:	0.4.6
-Release:	%mkrel 4
+Version:	0.4.7
+Release:	%mkrel 1
 License:	GPL
 Group:		Graphics
 Url:		http://www.jwm-art.net/gkII/
-Source0:	http://www.jwm-art.net/gkII/%{oname}-src-%{version}.tar.bz2
+Source0:	http://www.jwm-art.net/gkII/%{oname}-%{version}.tar.bz2
+Patch0:		gkii-0.4.7-makefile.patch
 BuildRequires:	libgtk+2-devel
 BuildRequires:	libpng-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -19,17 +20,20 @@ randomization, striping, scaling, and interpolation.
 
 %prep
 %setup -qn %{oname}-%{version}
+%patch0 -p1
 
 %build
-
+%setup_compile_flags
+pushd src
 %make
+popd
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_datadir}/%{name}/gallery
 
-install gkII %{buildroot}%{_bindir}/%{name}
+install src/gkII %{buildroot}%{_bindir}/%{name}
 install gallery/* %{buildroot}%{_datadir}/%{name}/gallery
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -39,5 +43,3 @@ install gallery/* %{buildroot}%{_datadir}/%{name}/gallery
 %doc BUGS CHANGES KEYS LICENSE README TODO
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}/gallery/*
-
-
