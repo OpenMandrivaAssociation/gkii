@@ -1,0 +1,12 @@
+diff -urN gkII-0.4.7/src/my_png.c gkII-0.4.7-patched/src/my_png.c
+--- gkII-0.4.7/src/my_png.c	2009-12-27 11:32:26.000000000 +1000
++++ gkII-0.4.7-patched/src/my_png.c	2012-11-15 20:05:54.000000000 +1100
+@@ -57,7 +57,7 @@
+         return;
+     }
+ 
+-    if (setjmp(png_ptr->jmpbuf)) {
++    if (setjmp(png_jmpbuf(png_ptr))) {
+         fprintf(stderr, "Internal error in libpng\n");
+         if (png_pal)
+             g_free(png_pal);

@@ -1,14 +1,17 @@
---- gkII-0.4.7/src/Makefile	2009-12-27 05:58:32.000000000 +0000
-+++ gkII-0.4.7.tpg/src/Makefile	2009-12-31 17:57:48.000000000 +0000
-@@ -9,7 +9,7 @@
+diff -urN gkII-0.4.7/src/Makefile gkII-0.4.7-patched/src/Makefile
+--- gkII-0.4.7/src/Makefile	2009-12-27 15:58:32.000000000 +1000
++++ gkII-0.4.7-patched/src/Makefile	2012-11-15 20:08:05.237979985 +1100
+@@ -9,8 +9,8 @@
  
  #CFLAGS := $(DEFS) -Wall -g2 #-DDEBUG_PAR
  
 -CFLAGS := $(DEFS) -O2 -fomit-frame-pointer -Winline
-+CFLAGS += $(DEFS) -O2 -fomit-frame-pointer -Winline
- LIBS   := -lpng -lz
+-LIBS   := -lpng -lz
++CFLAGS ?= 
++LIBS   := -lpng -lz -lm
  
  SRC    := $(wildcard *.c)
+ OBJS   := $(patsubst %.c, %.o, $(SRC))
 @@ -18,7 +18,7 @@
  
  $(PROG): $(OBJS)
