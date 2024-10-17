@@ -6,7 +6,7 @@ Version:	0.4.7
 Release:	4
 License:	GPL
 Group:		Graphics
-Url:		http://www.jwm-art.net/gkII/
+Url:		https://www.jwm-art.net/gkII/
 Source0:	http://www.jwm-art.net/gkII/%{oname}-%{version}.tar.bz2
 Patch0:		gkII-0.4.7-Makefile.patch
 Patch1:		gkII-0.4.7-libpng15.patch
