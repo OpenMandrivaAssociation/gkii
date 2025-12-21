@@ -10,6 +10,7 @@ Url:		https://www.jwm-art.net/gkII/
 Source0:	http://www.jwm-art.net/gkII/%{oname}-%{version}.tar.bz2
 Patch0:		gkII-0.4.7-Makefile.patch
 Patch1:		gkII-0.4.7-libpng15.patch
+BuildRequires:	make
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libpng)
 
